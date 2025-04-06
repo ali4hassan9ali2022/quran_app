@@ -9,11 +9,11 @@ class CustomSongsDetailsItem extends StatelessWidget {
     required this.onTap,
     required this.songsModel,
   });
-  final VoidCallback onTap;
+  final void Function() onTap;
   final SongsModel songsModel;
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: onTap,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

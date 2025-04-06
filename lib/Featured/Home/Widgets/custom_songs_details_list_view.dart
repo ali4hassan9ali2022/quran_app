@@ -6,7 +6,8 @@ import 'package:quran_app/Featured/Home/Widgets/custom_songs_details_item.dart';
 
 
 class CustomSongsDetailsListView extends StatelessWidget {
-  const CustomSongsDetailsListView({super.key});
+  const CustomSongsDetailsListView({super.key, required this.onTap});
+  final void Function(int index) onTap;
   static const songs = [
     SongsModel(
       title: "سورة البقرة",
@@ -42,7 +43,7 @@ class CustomSongsDetailsListView extends StatelessWidget {
             return CustomSongsDetailsItem(
               songsModel: songs[index],
               onTap: () {
-                // GoRouter.of(context).push(AppRouter.kPlayView);
+                onTap(index);
               },
             );
           },

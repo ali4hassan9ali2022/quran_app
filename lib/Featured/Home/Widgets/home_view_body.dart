@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quran_app/Core/Controllers/home_view_controller.dart';
 import 'package:quran_app/Featured/Home/Widgets/custom_card_list_view.dart';
 import 'package:quran_app/Featured/Home/Widgets/custom_songs_details_list_view.dart';
 import 'package:quran_app/Featured/Home/Widgets/custom_text_field.dart';
@@ -21,13 +22,23 @@ class HomeViewBody extends StatelessWidget {
           const SizedBox(height: 32),
           const CustomTestHomeView(text: "Recently Played"),
           const SizedBox(height: 32),
-          const CustomSongsDetailsListView(),
+          CustomSongsDetailsListView(
+            onTap: (index) {
+              HomeViewController.navigateToPlayView(
+                context: context,
+                index: index,
+              );
+            },
+          ),
           const SizedBox(height: 31),
           const CustomTestHomeView(text: "Recommanded music"),
           const SizedBox(height: 21),
           CustomCardListView(
             onTap: (index) {
-              
+              HomeViewController.navigateToPlayView(
+                context: context,
+                index: index,
+              );
             },
           ),
         ],
