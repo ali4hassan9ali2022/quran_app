@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
-import 'package:quran_app/Layout/main_home_view.dart';
+import 'package:quran_app/Featured/on_boarding/Views/on_boarding_view.dart';
+
 
 
 abstract class SplashController {
@@ -8,7 +9,7 @@ abstract class SplashController {
       // Get.to(() => const HomeView(),
       //     transition: Transition.fade, duration: kTransitionDuration);
       // ignore: use_build_context_synchronously
-      Navigator.pushNamed(context, MainHomeView.id);
+      Navigator.pushNamed(context, OnBoardingView.id);
     });
   }
 }
