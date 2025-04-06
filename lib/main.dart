@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:quran_app/Featured/Home/Views/home_view.dart';
+import 'package:quran_app/Featured/Splash/Views/splash_view.dart';
 import 'package:quran_app/Layout/main_home_view.dart';
 
 void main() {
@@ -13,9 +15,12 @@ class QuranApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
+        SplashView.id : (context) => const SplashView(),
         MainHomeView.id : (context) => const MainHomeView(),
+        HomeView.id : (context) => const HomeView(),
+        
       },
-      initialRoute: MainHomeView.id,
+      initialRoute: SplashView.id,
     );
   }
 }

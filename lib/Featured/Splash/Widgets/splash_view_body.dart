@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quran_app/Core/Controllers/splash_controller.dart';
 import 'package:quran_app/Core/Utils/assets.dart';
 import 'package:quran_app/Featured/Splash/Widgets/sliding_text.dart';
 
@@ -17,7 +18,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
   @override
   void initState() {
     initSlidingAnimation();
-    
+    SplashController.navigateToOnBoardingViewView(context);
     super.initState();
   }
 
