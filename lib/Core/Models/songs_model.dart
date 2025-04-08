@@ -1,7 +1,7 @@
 class SongsModel {
-  final String title, subTitle, image, path;
+String title, subTitle, image, path;
 
-  const SongsModel({
+   SongsModel({
     required this.title,
     required this.subTitle,
     required this.image,

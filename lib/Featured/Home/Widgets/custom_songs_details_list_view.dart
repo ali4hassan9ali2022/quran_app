@@ -1,33 +1,10 @@
 import 'package:flutter/material.dart';
-
-import 'package:quran_app/Core/Models/songs_model.dart';
-import 'package:quran_app/Core/Utils/assets.dart';
 import 'package:quran_app/Featured/Home/Widgets/custom_songs_details_item.dart';
-
+import 'package:quran_app/constents.dart';
 
 class CustomSongsDetailsListView extends StatelessWidget {
   const CustomSongsDetailsListView({super.key, required this.onTap});
   final void Function(int index) onTap;
-  static const songs = [
-    SongsModel(
-      title: "سورة البقرة",
-      subTitle: "عبدالله كامل",
-      image: Assets.imagesQu1,
-      path: "",
-    ),
-    SongsModel(
-      title: "سورة ال عمران",
-      subTitle: "عبدالله كامل",
-      image: Assets.imagesQu2,
-      path: "",
-    ),
-    SongsModel(
-      title: "سورة طه",
-      subTitle: "عبدالله كامل",
-      image: Assets.imagesQu3,
-      path: "",
-    ),
-  ];
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -41,13 +18,13 @@ class CustomSongsDetailsListView extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             return CustomSongsDetailsItem(
-              songsModel: songs[index],
+              songsModel: Constents.items[index],
               onTap: () {
                 onTap(index);
               },
             );
           },
-          itemCount: songs.length,
+          itemCount: Constents.items.length,
         ),
       ),
     );

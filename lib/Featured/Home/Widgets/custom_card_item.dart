@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/Core/Models/card_model.dart';
+import 'package:quran_app/Core/Models/songs_model.dart';
 import 'package:quran_app/Core/Utils/app_styles.dart';
 
 class CustomCardItem extends StatefulWidget {
   const CustomCardItem({super.key, required this.cardModel});
-  final CardModel cardModel;
+  final SongsModel cardModel;
   @override
   State<CustomCardItem> createState() => _CustomCardItemState();
 }
@@ -30,19 +30,18 @@ class _CustomCardItemState extends State<CustomCardItem> {
       ),
       trailing: IconButton(
         onPressed: () {
-          if (widget.cardModel.isActive == true) {
-            setState(() {
-              widget.cardModel.isActive = false;
-            });
-          } else {
-            setState(() {
-              widget.cardModel.isActive = true;
-            });
-          }
+          // if (widget.cardModel.isActive == true) {
+          //   setState(() {
+          //     widget.cardModel.isActive = false;
+          //   });
+          // } else {
+          //   setState(() {
+          //     widget.cardModel.isActive = true;
+          //   });
+          // }
         },
-        icon: Icon(
-          widget.cardModel.isActive ? Icons.favorite : Icons.favorite_outline,
-          color: widget.cardModel.isActive ? Colors.red : Colors.white,
+        icon:const Icon(
+          Icons.favorite 
         ),
       ),
     );

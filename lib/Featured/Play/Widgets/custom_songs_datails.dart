@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:quran_app/Core/Models/songs_model.dart';
 import 'package:quran_app/Core/Utils/app_styles.dart';
-import 'package:quran_app/Core/Utils/assets.dart';
 
 
 class CustomSongsDetailsPlayMusic extends StatelessWidget {
-  const CustomSongsDetailsPlayMusic({super.key});
- 
+  const CustomSongsDetailsPlayMusic({super.key, required this.items});
+  final SongsModel items;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -16,13 +16,13 @@ class CustomSongsDetailsPlayMusic extends StatelessWidget {
             aspectRatio: 247.06 / 261,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
-              child: Image.asset(Assets.imagesTest, fit: BoxFit.cover),
+              child: Image.asset(items.image, fit: BoxFit.cover),
             ),
           ),
           const SizedBox(height: 22),
-          Text("NEW RULES", style: AppStyles.styleMedium18(context)),
+          Text(items.title, style: AppStyles.styleMedium18(context)),
           const SizedBox(height: 4),
-          Text("NEW RULES", style: AppStyles.styleMedium12(context)),
+          Text(items.subTitle, style: AppStyles.styleMedium12(context)),
         ],
       ),
     );
