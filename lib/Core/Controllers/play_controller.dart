@@ -6,9 +6,16 @@ class PlayController {
   late AudioPlayer audioPlayer;
   late AudioCache audioCache;
   late Uri uri;
-  PlayController(this.index) {
+
+  PlayController._interna(this.index) {
     audioPlayer = AudioPlayer();
     audioCache = AudioCache(prefix: "");
+  }
+  static PlayController? instance;
+  factory PlayController(int index) {
+    instance??= PlayController._interna(index);
+    return instance!;
+   
   }
   void initAudio() async {
     uri = await audioCache.load(Constents.items[index].path);

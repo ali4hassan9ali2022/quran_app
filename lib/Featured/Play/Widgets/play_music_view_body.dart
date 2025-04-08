@@ -32,7 +32,7 @@ class _PlayViewBodyState extends State<PlayViewBody> {
   @override
   void dispose() {
     super.dispose();
-    _playController.disposeAudio();
+    // _playController.disposeAudio();
   }
 
   @override
