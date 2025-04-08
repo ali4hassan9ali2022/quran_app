@@ -8,10 +8,11 @@ class CustomButtonControllorPlayMusic extends StatelessWidget {
   const CustomButtonControllorPlayMusic({
     super.key,
     required this.value,
-    required this.onChanged,
+    required this.onChanged, required this.onTap,
   });
   final double value;
   final Function(double) onChanged;
+  final Function() onTap;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -36,10 +37,13 @@ class CustomButtonControllorPlayMusic extends StatelessWidget {
               ),
               child: Image.asset(Assets.imagesBack),
             ),
-            CircleAvatar(
-              radius: 30,
-              backgroundColor: AppColors.kLightWhiteColor,
-              child: Image.asset(Assets.imagesPause),
+            InkWell(
+              onTap: onTap,
+              child: CircleAvatar(
+                radius: 30,
+                backgroundColor: AppColors.kLightWhiteColor,
+                child: Image.asset(Assets.imagesPause),
+              ),
             ),
             Container(
               height: 36,

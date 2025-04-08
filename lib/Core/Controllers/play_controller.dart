@@ -13,15 +13,22 @@ class PlayController {
   }
   static PlayController? instance;
   factory PlayController(int index) {
-    instance??= PlayController._interna(index);
+    instance ??= PlayController._interna(index);
     return instance!;
-   
   }
-  void initAudio() async {
+  void playAudio() async {
     uri = await audioCache.load(Constents.items[index].path);
     audioPlayer.play(UrlSource(uri.toString()));
   }
+
   void disposeAudio() {
     audioPlayer.dispose();
+  }
+  void changePlayStatus() {
+    if (audioPlayer.state == PlayerState.playing) {
+      audioPlayer.pause();
+    } else if (audioPlayer.state == PlayerState.paused) {
+      audioPlayer.resume();
+    }
   }
 }

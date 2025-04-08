@@ -1,4 +1,3 @@
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:quran_app/Core/Controllers/play_controller.dart';
 import 'package:quran_app/Featured/Play/Widgets/custom_button_controllor_play_music.dart';
@@ -26,7 +25,7 @@ class _PlayViewBodyState extends State<PlayViewBody> {
     super.didChangeDependencies();
     index = ModalRoute.of(context)!.settings.arguments as int;
     _playController = PlayController(index);
-    _playController.initAudio();
+    _playController.playAudio();
   }
 
   @override
@@ -41,9 +40,13 @@ class _PlayViewBodyState extends State<PlayViewBody> {
       child: Column(
         children: [
           const SizedBox(height: 98),
-          CustomSongsDetailsPlayMusic(items: Constents.items[index],),
+          CustomSongsDetailsPlayMusic(items: Constents.items[index]),
           const SizedBox(height: 28),
-          CustomButtonControllorPlayMusic(value: 0.6, onChanged: (p0) {}),
+          CustomButtonControllorPlayMusic(
+            onTap: () {
+              _playController.changePlayStatus();
+            },
+            value: 0.6, onChanged: (p0) {}),
           const SizedBox(height: 7),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 89),
