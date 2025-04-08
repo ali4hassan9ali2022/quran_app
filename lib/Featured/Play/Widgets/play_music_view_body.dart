@@ -46,6 +46,7 @@ class _PlayViewBodyState extends State<PlayViewBody> {
             onTap: () {
               _playController.changePlayStatus();
             },
+            playStatusOutputData: _playController.playStatusOutputData,
             value: 0.6, onChanged: (p0) {}),
           const SizedBox(height: 7),
           const Padding(

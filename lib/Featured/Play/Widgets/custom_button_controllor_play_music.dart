@@ -3,16 +3,18 @@ import 'package:quran_app/Core/Utils/app_colors.dart';
 import 'package:quran_app/Core/Utils/app_styles.dart';
 import 'package:quran_app/Core/Utils/assets.dart';
 
-
 class CustomButtonControllorPlayMusic extends StatelessWidget {
   const CustomButtonControllorPlayMusic({
     super.key,
     required this.value,
-    required this.onChanged, required this.onTap,
+    required this.onChanged,
+    required this.onTap,
+    required this.playStatusOutputData,
   });
   final double value;
   final Function(double) onChanged;
   final Function() onTap;
+  final Stream playStatusOutputData;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -39,10 +41,21 @@ class CustomButtonControllorPlayMusic extends StatelessWidget {
             ),
             InkWell(
               onTap: onTap,
-              child: CircleAvatar(
-                radius: 30,
-                backgroundColor: AppColors.kLightWhiteColor,
-                child: Image.asset(Assets.imagesPause),
+              child: StreamBuilder(
+                stream: playStatusOutputData,
+                builder: (context, snapshot) {
+                  return CircleAvatar(
+                    radius: 30,
+                    backgroundColor: AppColors.kLightWhiteColor,
+                    child: Icon(
+                      snapshot.data == true
+                          ? Icons.pause_rounded
+                          : Icons.play_arrow,
+                      color: Colors.white,
+                      size: 30,
+                    ),
+                  );
+                },
               ),
             ),
             Container(
